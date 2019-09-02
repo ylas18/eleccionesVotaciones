@@ -10,27 +10,30 @@
         <ui:composition template="./template/masterPrincipal.xhtml">
 
             <ui:define name="content">
-                <h:form
-                    <p:commandButton value="Listar" actionListener="#{controllerVotacion.listarUsuario()}" update="tabla"></p:commandButton>
-                    <h:commandLink>
-                        <p:graphicImage name="/resources/imagen/imag.png" height="80px" width="80px" />
-                        <p:dataExporter type="pdf" target="tabla" fileName="Candidatos" pageOnly="true"/>
-                    </h:commandLink>
-                    
-                    <p:dataTable id="tabla" selectionMode="single" rowKey="#{c.nombre}" value="#{controllerVotacion.lista}" var="c" rows="6"
-                                 paginator="true"
-                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 rowsPerPageTemplate="5,10,15" >
-
-                        <p:column headerText="Nombre" filterBy="#{c.nombre}" filterMatchMode="exact">
-                            <p:outputLabel value="#{c.nombre}" />
+                <h:form>
+                    <p:dataTable id="tablaCandidatos" value="#{controllerVotacion.lista}">
+                        <p:column>
+                            #{controllerVotacion.usu.nombre}
+                        </p:column>
+                        <p:column>
+                            #{controllerVotacion.usu.apellido}
+                        </p:column>
+                        <p:column>
+                            #{controllerVotacion.usu.edad}
+                        </p:column>
+                        <p:column>
+                            #{controllerVotacion.usu.fecha_Nacimiento}
+                        </p:column>
+                        <p:column>
+                            #{controllerVotacion.usu.sexo}
                         </p:column>
 
-                        <p:column headerText="Apellido" filterBy="#{c.apellido}" filterMatchMode="contains">
-                            <p:outputLabel value="#{c.apellido}" /> 
-                        </p:column>
 
                     </p:dataTable>
+
+
+
+
                 </h:form>
             </ui:define>
 

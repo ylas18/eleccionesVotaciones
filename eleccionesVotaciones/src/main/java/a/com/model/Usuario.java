@@ -109,7 +109,11 @@ public class Usuario implements Serializable {
 
         usuarioLista.add(new Usuario(nombre, apellido, edad, fecha_Nacimiento, foto, sexo, votos));
 
-        
+    }
+
+    public List<Usuario> listar() {
+
+        return usuarioLista;
     }
 
 }

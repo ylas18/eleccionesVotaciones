@@ -26,7 +26,7 @@ import org.primefaces.model.UploadedFile;
  * @author Yesid
  */
 @ManagedBean(name = "controllerRegistro")
-@RequestScoped
+@ApplicationScoped
 public class controllerRegistro implements Serializable {
 
     Usuario usu = new Usuario();
@@ -46,7 +46,7 @@ public class controllerRegistro implements Serializable {
         context.addMessage(null, new FacesMessage("Second Message", "Additional Message Detail"));
         usu.guardar();
 
-        return "prueba";
+        return "votacion";
     }
 
 }
